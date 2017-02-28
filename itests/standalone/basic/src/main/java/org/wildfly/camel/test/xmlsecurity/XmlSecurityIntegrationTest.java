@@ -20,6 +20,17 @@
 
 package org.wildfly.camel.test.xmlsecurity;
 
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
+import java.security.NoSuchAlgorithmException;
+import java.security.PrivateKey;
+import java.security.SecureRandom;
+
+import javax.naming.InitialContext;
+import javax.xml.crypto.KeySelector;
+import javax.xml.crypto.dsig.keyinfo.KeyInfo;
+import javax.xml.crypto.dsig.keyinfo.KeyInfoFactory;
+
 import org.apache.camel.CamelContext;
 import org.apache.camel.Message;
 import org.apache.camel.ProducerTemplate;
@@ -30,33 +41,20 @@ import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.spec.WebArchive;
+import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.After;
 import org.junit.Assert;
-import org.junit.Assume;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.w3c.dom.Node;
-import org.wildfly.camel.test.common.utils.EnvironmentUtils;
 import org.wildfly.extension.camel.CamelAware;
-
-import javax.naming.InitialContext;
-import javax.xml.crypto.KeySelector;
-import javax.xml.crypto.dsig.keyinfo.KeyInfo;
-import javax.xml.crypto.dsig.keyinfo.KeyInfoFactory;
-
-import java.security.KeyPair;
-import java.security.KeyPairGenerator;
-import java.security.NoSuchAlgorithmException;
-import java.security.PrivateKey;
-import java.security.SecureRandom;
 
 @CamelAware
 @RunWith(Arquillian.class)
 public class XmlSecurityIntegrationTest {
 
-    private static String XML_PAYLOAD = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+    private static String XML_PAYLOAD = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
             + "<root xmlns=\"http://test/test\"><test>Hello Kermit</test></root>";
 
     private KeyPair keyPair;
@@ -65,10 +63,8 @@ public class XmlSecurityIntegrationTest {
     private InitialContext initialContext;
 
     @Deployment
-    public static WebArchive createDeployment() {
-        final WebArchive archive = ShrinkWrap.create(WebArchive.class, "camel-test.war");
-        archive.addClasses(EnvironmentUtils.class);
-        return archive;
+    public static JavaArchive createDeployment() {
+        return ShrinkWrap.create(JavaArchive.class, "camel-test.jar");
     }
 
     @Before
@@ -87,14 +83,12 @@ public class XmlSecurityIntegrationTest {
     @Test
     public void testXmlSigning() throws Exception {
 
-        Assume.assumeFalse("[#1652] XmlSecurityIntegrationTest fails on AIX", EnvironmentUtils.isAIX());
-        
         CamelContext camelctx = new DefaultCamelContext();
         camelctx.addRoutes(new RouteBuilder() {
             @Override
             public void configure() throws Exception {
                 from("direct:start")
-                    .to("xmlsecurity:sign://enveloping?keyAccessor=#accessor&schemaResourceUri=");
+                .to("xmlsecurity:sign://enveloping?keyAccessor=#accessor&schemaResourceUri=");
             }
         });
 
@@ -114,15 +108,13 @@ public class XmlSecurityIntegrationTest {
     @Test
     public void testXmlVerifySigning() throws Exception {
 
-        Assume.assumeFalse("[#1652] XmlSecurityIntegrationTest fails on AIX", EnvironmentUtils.isAIX());
-        
         CamelContext camelctx = new DefaultCamelContext();
         camelctx.addRoutes(new RouteBuilder() {
             @Override
             public void configure() throws Exception {
                 from("direct:start")
-                    .to("xmlsecurity:sign://enveloping?keyAccessor=#accessor&schemaResourceUri=")
-                    .to("xmlsecurity:verify://enveloping?keySelector=#selector");
+                .to("xmlsecurity:sign://enveloping?keyAccessor=#accessor&schemaResourceUri=")
+                .to("xmlsecurity:verify://enveloping?keySelector=#selector");
             }
         });
 
@@ -133,7 +125,7 @@ public class XmlSecurityIntegrationTest {
             String verifiedXml = producer.requestBody("direct:start", XML_PAYLOAD, String.class);
 
             // Make sure the XML was unsigned
-            Assert.assertEquals(XML_PAYLOAD, verifiedXml);
+            Assert.assertEquals(XML_PAYLOAD, verifiedXml.replace("\n", ""));
         } finally {
             camelctx.stop();
         }

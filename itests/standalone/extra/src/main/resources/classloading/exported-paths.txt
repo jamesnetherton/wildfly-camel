@@ -1039,6 +1039,7 @@ org/apache/olingo/odata2/core/servicedocument
 org/apache/olingo/odata2/core/servlet
 org/apache/olingo/odata2/core/uri
 org/apache/olingo/odata2/core/uri/expression
+org/apache/xml/serializer
 org/apache/xmlbeans
 org/apache/xmlbeans/impl/schema
 org/apache/xmlbeans/impl/values

@@ -1571,6 +1571,17 @@
             <include module="org.springframework.boot" />
         </apply-to-dependencies>
         <dependencies>
+            <module name="org.apache.xalan" export="true">
+                <exports>
+                    <include path="org/apache/xml/serializer" />
+                    <exclude path="org/apache/xml**" />
+                    <exclude path="java_cup**" />
+                    <exclude path="org/apache/bcel**" />
+                    <exclude path="org/apache/regexp**" />
+                    <exclude path="org/apache/xalan**" />
+                    <exclude path="org/apache/xpath**" />
+                </exports>
+            </module>
             <module name="javax.api"/>
             <module name="org.slf4j"/>
         </dependencies>

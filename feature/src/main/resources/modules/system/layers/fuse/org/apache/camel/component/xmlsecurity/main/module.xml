@@ -4,12 +4,22 @@
     <artifact name="${org.apache.camel:camel-xmlsecurity}" />
   </resources>
   <dependencies>
+    <module name="org.apache.xalan" export="true">
+      <exports>
+        <include path="org/apache/xml/serializer" />
+        <exclude path="org/apache/xml**" />
+        <exclude path="java_cup**" />
+        <exclude path="org/apache/bcel**" />
+        <exclude path="org/apache/regexp**" />
+        <exclude path="org/apache/xalan**" />
+        <exclude path="org/apache/xpath**" />
+      </exports>
+    </module>
     <module name="javax.api" />
     <module name="org.slf4j" />
     <module name="javax.xml.bind.api" />
     <module name="org.apache.camel.core" />
     <module name="org.apache.commons.codec" />
     <module name="org.apache.santuario.xmlsec" />
-    <module name="org.apache.xalan" />
   </dependencies>
 </module>
