@@ -30,7 +30,14 @@
             <module name="sun.jdk" />
         </dependencies>
     </module>
-    
+
+    <module name="com.fasterxml.jackson.afterburner">
+        <properties>
+            <property name="jboss.api" value="private"/>
+        </properties>
+        <include artifact=":jackson-module-afterburner"/>
+    </module>
+
     <module name="com.fasterxml.jackson.dataformat.cbor">
         <properties>
             <property name="jboss.api" value="private"/>

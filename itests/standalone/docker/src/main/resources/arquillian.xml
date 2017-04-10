@@ -37,6 +37,15 @@
         <property name="autoStartContainers">[none]</property>
         <property name="definitionFormat">CUBE</property>
         <property name="dockerContainers">
+            etcd:
+                image: quay.io/coreos/etcd:v3.1.5
+                portBindings: [
+                    2379->2379/tcp
+                ]
+                await:
+                    strategy: log
+                    match: 'listening for client requests'
+                    timeout: 15
             influxdb:
                 image: influxdb:1.1-alpine
                 env: [
