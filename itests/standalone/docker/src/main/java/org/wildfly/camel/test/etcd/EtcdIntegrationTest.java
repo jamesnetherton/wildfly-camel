@@ -88,7 +88,6 @@ public class EtcdIntegrationTest {
         headers.put(EtcdConstants.ETCD_ACTION, EtcdConstants.ETCD_KEYS_ACTION_SET);
         headers.put(EtcdConstants.ETCD_PATH, path);
 
-
         MockEndpoint mockEndpoint = camelctx.getEndpoint("mock:result", MockEndpoint.class);
         mockEndpoint.expectedMinimumMessageCount(1);
         mockEndpoint.expectedHeaderReceived(EtcdConstants.ETCD_NAMESPACE, EtcdNamespace.keys.name());

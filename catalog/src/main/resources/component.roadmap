@@ -23,6 +23,7 @@ dozer
 ejb
 elasticsearch
 elsql
+etcd
 exec
 file
 flatpack
@@ -134,7 +135,6 @@ coap
 couchdb
 docker
 dropbox
-etcd
 facebook
 flink
 github
