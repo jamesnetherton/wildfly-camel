@@ -131,7 +131,12 @@
         <include artifact=":geronimo-servlet_3.0_spec" />
         <include artifact=":javax.servlet-api" />
         <include artifact=":jboss-servlet-api_3.1_spec" />
+        <include artifact=":servletapi" />
         <include artifact=":servlet-api" />
+    </module>
+
+    <module name="javax.servlet.jsp.api" skip="true">
+        <include artifact=":jsp-api" />
     </module>
 
     <module name="javax.transaction.api" skip="true">

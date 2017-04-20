@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="urn:jboss:module:1.1" name="commons-el">
+  <resources>
+    <artifact name="${commons-el:commons-el}" />
+  </resources>
+  <dependencies>
+    <module name="javax.servlet.api" />
+    <module name="javax.servlet.jsp.api" />
+    <module name="org.apache.commons.logging" />
+  </dependencies>
+</module>

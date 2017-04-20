@@ -373,6 +373,13 @@
         </dependencies>
     </module>
 
+    <module name="org.apache.flink">
+        <properties>
+            <property name="jboss.api" value="private"/>
+        </properties>
+        <include artifact="org.apache.flink:" />
+    </module>
+
     <!-- [FIXME #1357] Integrate with httpclient 4.5.2 when provided by WildFly -->
     <module name="org.apache.httpcomponents" slot="4.5.2" inherit-slot="false">
         <properties>

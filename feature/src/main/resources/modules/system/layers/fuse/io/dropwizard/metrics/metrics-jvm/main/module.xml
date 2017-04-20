@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="urn:jboss:module:1.1" name="io.dropwizard.metrics.metrics-jvm">
+  <resources>
+    <artifact name="${io.dropwizard.metrics:metrics-jvm}" />
+  </resources>
+  <dependencies>
+    <module name="org.apache.camel.component.metrics" />
+    <module name="org.slf4j" />
+  </dependencies>
+</module>

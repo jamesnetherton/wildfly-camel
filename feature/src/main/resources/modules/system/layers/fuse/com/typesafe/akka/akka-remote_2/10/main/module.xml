@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="urn:jboss:module:1.1" name="com.typesafe.akka.akka-remote_2.10">
+  <resources>
+    <artifact name="${com.typesafe.akka:akka-remote_2.10}" />
+  </resources>
+  <dependencies>
+    <module name="com.typesafe.akka.akka-actor_2.10" />
+    <module name="io.netty.parts" />
+    <module name="org.apache.camel.component.protobuf" />
+    <module name="org.scala.library" />
+    <module name="org.uncommons.maths.uncommons-maths" />
+  </dependencies>
+</module>

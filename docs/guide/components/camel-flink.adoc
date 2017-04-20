@@ -1,0 +1,5 @@
+### camel-flink
+
+The http://camel.apache.org/flink.html[Flink,window=_blank]
+component uses https://flink.apache.org/[Apache Flink,window=_blank] to provide a bridge between Camel connectors and Flink tasks.
+

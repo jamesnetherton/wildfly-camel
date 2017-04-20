@@ -220,6 +220,10 @@
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
+            <artifactId>camel-flink</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
             <artifactId>camel-freemarker</artifactId>
         </dependency>
         <dependency>
@@ -712,6 +716,10 @@
                         <exclude>
                             <groupId>org.wildfly.extras.patch</groupId>
                             <artifactId>fuse-patch-feature-pack</artifactId>
+                        </exclude>
+                        <exclude>
+                            <groupId>com.typesafe.akka</groupId>
+                            <artifactId>akka-testkit_2.10</artifactId>
                         </exclude>
                         <exclude>
                             <groupId>io.hawt</groupId>

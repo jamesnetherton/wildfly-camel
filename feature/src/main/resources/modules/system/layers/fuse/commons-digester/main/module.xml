@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="urn:jboss:module:1.1" name="commons-digester">
+  <resources>
+    <artifact name="${commons-digester:commons-digester}" />
+  </resources>
+  <dependencies>
+    <module name="org.apache.commons.logging" />
+    <module name="org.apache.xerces" />
+  </dependencies>
+</module>

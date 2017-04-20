@@ -132,7 +132,11 @@
     <module name="com.sun.xml.bind.jaxb.xjc" skip="true">
         <include artifact="com.sun.xml.bind:jaxb-xjc" />
     </module>
-    
+
+    <module name="javax.jcr" skip="true">
+        <include artifact="javax.jcr:jcr" />
+    </module>
+
     <module name="jexcelapi" skip="true">
         <include artifact="jexcelapi:jxl" />
     </module>
@@ -286,7 +290,11 @@
     <module name="org.ops4j" skip="true">
         <include artifact="org.ops4j.base:(.*)" />
     </module>
-    
+
+    <module name="org.osgi" skip="true">
+        <include artifact="org.osgi:osgi_R4_core" />
+    </module>
+
     <module name="org.osgi.compendium" skip="true">
         <include artifact="org.osgi:org.osgi.compendium" />
     </module>
