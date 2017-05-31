@@ -31,7 +31,7 @@ import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.wildfly.camel.test.common.http.HttpRequest;
+import org.wildfly.camel.test.common.utils.TestUtils;
 import org.wildfly.extension.camel.CamelAware;
 
 @CamelAware
@@ -41,12 +41,11 @@ public class Https4IntegrationTest {
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class, "camel-https4-tests.jar")
-            .addClass(HttpRequest.class);
+            .addClass(TestUtils.class);
     }
 
     @Test
     public void testHttpsGetRequest() throws Exception {
-
         CamelContext camelctx = new DefaultCamelContext();
         camelctx.addRoutes(new RouteBuilder() {
             @Override
@@ -61,7 +60,7 @@ public class Https4IntegrationTest {
             ProducerTemplate template = camelctx.createProducerTemplate();
 
             // Force WildFly to generate a self-signed SSL cert & keystore
-            HttpRequest.get("https://localhost:8443").throwExceptionOnFailure(false).getResponse();
+            TestUtils.initaliseWildFlySSL();
 
             // Use the generated keystore
             String keystorePath = System.getProperty("jboss.server.config.dir") + "/application.keystore";

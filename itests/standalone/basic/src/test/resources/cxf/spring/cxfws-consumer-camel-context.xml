@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
   #%L
   Wildfly Camel :: Testsuite
@@ -33,7 +34,7 @@
         address="http://localhost:8080/EndpointService/EndpointPort" 
         serviceClass="org.wildfly.camel.test.common.types.Endpoint" />
     
-    <camelContext id="cxfws-undertow" xmlns="http://camel.apache.org/schema/spring">
+    <camelContext id="cxfws-ssl-context" xmlns="http://camel.apache.org/schema/spring">
         <route id="producerRoute">
             <from uri="direct:start" />
             <to uri="cxf:bean:cxfProducer" />

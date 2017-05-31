@@ -22,8 +22,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.InetAddress;
+import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.Random;
+
+import javax.net.ssl.SSLHandshakeException;
 
 import org.jboss.gravia.utils.IOUtils;
 import org.jboss.gravia.utils.IllegalStateAssertion;
@@ -72,6 +77,14 @@ public final class TestUtils {
             ByteArrayOutputStream out = new ByteArrayOutputStream();
             IOUtils.copyStream(in, out);
             return new String(out.toByteArray());
+        }
+    }
+
+    public static void initaliseWildFlySSL() throws Exception {
+        try {
+            new URL("https://localhost:8443").openConnection().connect();
+        } catch (SSLHandshakeException e) {
+            // Expected
         }
     }
 }
