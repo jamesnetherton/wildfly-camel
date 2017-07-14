@@ -106,7 +106,7 @@ public final class WildFlyCamelConfigPlugin implements ConfigPlugin {
     }
 
     private static void updateSubsystem(ConfigContext context, boolean enable) {
-        List<Element> profiles = ConfigSupport.findProfileElements(context.getDocument(), NS_DOMAINS );
+        List<Element> profiles = ConfigSupport.findProfileElements(context.getDocument(), NS_DOMAINS);
         for (Element profile : profiles) {
             Element element = profile.getChild("subsystem", NS_CAMEL);
             if (enable && element == null) {
@@ -122,9 +122,10 @@ public final class WildFlyCamelConfigPlugin implements ConfigPlugin {
     }
 
     private static void updateSecurityDomain(ConfigContext context, boolean enable) {
-        List<Element> profiles = ConfigSupport.findProfileElements(context.getDocument(), NS_DOMAINS );
+        List<Element> profiles = ConfigSupport.findProfileElements(context.getDocument(), NS_DOMAINS);
         for (Element profile : profiles) {
             Element security = profile.getChild("subsystem", NS_SECURITY);
+            ConfigSupport.assertExists(security, "Did not find the security subsystem element for: " + NS_SECURITY);
             if (security != null) {
                 Element domains = security.getChild("security-domains", NS_SECURITY);
                 ConfigSupport.assertExists(domains, "Did not find the <security-domains> element");
