@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="urn:jboss:module:1.1" name="com.dataartisans.flakka">
+  <properties>
+    <property name="jboss.api" value="private" />
+  </properties>
+  <resources>
+    <artifact name="${com.data-artisans:flakka-actor_2.10}" />
+    <artifact name="${com.data-artisans:flakka-remote_2.10}" />
+    <artifact name="${com.data-artisans:flakka-slf4j_2.10}" />
+  </resources>
+  <dependencies>
+    <module name="sun.jdk">
+      <imports>
+        <include path="sun/misc/Unsafe" />
+      </imports>
+    </module>
+    <module name="com.google.protobuf" />
+    <module name="com.typesafe.config" />
+    <module name="io.netty" slot="3.10" />
+    <module name="org.scala.library" />
+    <module name="org.slf4j" />
+    <module name="org.uncommons.maths" />
+  </dependencies>
+</module>

@@ -642,6 +642,29 @@
         </exports>
     </module>
 
+    <module name="org.apache.camel.component.flink">
+        <include artifact="org.apache.camel:camel-flink" />
+        <apply-to-dependencies skip="true">
+            <include module="org.apache.camel.apt" />
+            <include module="org.springframework.boot" />
+        </apply-to-dependencies>
+        <dependencies>
+            <module name="javax.api"/>
+            <module name="org.apache.flink" export="true">
+                <exports>
+                    <include path="org/apache/flink/api**" />
+                    <include path="org/apache/flink/streaming/api**" />
+                    <exclude path="contribs/mx**" />
+                    <exclude path="org/apache/flink**" />
+                    <exclude path="org/apache/hadoop**" />
+                    <exclude path="org/jets3t**" />
+                    <exclude path="webapps**" />
+                </exports>
+            </module>
+            <module name="org.slf4j" />
+        </dependencies>
+    </module>
+
     <module name="org.apache.camel.component.freemarker">
         <include artifact="org.apache.camel:camel-freemarker" />
         <include artifact="org.freemarker:freemarker" />
@@ -1363,24 +1386,19 @@
 
     <module name="org.apache.camel.component.protobuf">
         <include artifact="org.apache.camel:camel-protobuf" />
-        <include artifact=":protobuf-java-util" />
-        <include artifact=":protobuf-java" />
         <apply-to-dependencies skip="true">
             <include module="org.apache.camel.apt" />
             <include module="org.springframework.boot" />
         </apply-to-dependencies>
         <dependencies>
-            <module name="sun.jdk">
-                <imports>
-                    <include path="sun/misc/Unsafe" />
-                </imports>
+            <module name="com.google.protobuf" export="true">
+                <exports>
+                    <exclude path="com/google" />
+                    <exclude path="com/google/protobuf/compiler" />
+                    <exclude path="google/protobuf**" />
+                </exports>
             </module>
         </dependencies>
-        <exports>
-            <exclude path="com/google" />
-            <exclude path="com/google/protobuf/compiler" />
-            <exclude path="google/protobuf**" />
-        </exports>
     </module>
 
     <module name="org.apache.camel.component.quartz2">

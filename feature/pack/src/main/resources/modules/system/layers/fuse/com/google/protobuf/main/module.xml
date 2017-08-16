@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module xmlns="urn:jboss:module:1.1" name="org.scala.library">
+<module xmlns="urn:jboss:module:1.1" name="com.google.protobuf">
   <properties>
     <property name="jboss.api" value="private" />
   </properties>
   <resources>
-    <artifact name="${org.scala-lang:scala-library}" />
+    <artifact name="${com.google.protobuf:protobuf-java}" />
+    <artifact name="${com.google.protobuf:protobuf-java-util}" />
   </resources>
   <dependencies>
     <module name="sun.jdk">
@@ -12,5 +13,7 @@
         <include path="sun/misc/Unsafe" />
       </imports>
     </module>
+    <module name="com.google.code.gson" />
+    <module name="com.google.guava" />
   </dependencies>
 </module>

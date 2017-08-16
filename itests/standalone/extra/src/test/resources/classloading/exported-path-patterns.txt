@@ -45,6 +45,8 @@
 	^org/apache/cxf/transport/undertow(.*)
 	^org/apache/cxf/ws/discovery(.*)
 	^org/apache/cxf/ws/security(.*)
+	^org/apache/flink/api(.*)
+	^org/apache/flink/streaming/api(.*)
 	^org/apache/ibatis(.*)
 	^org/apache/kafka(.*)
 	^org/apache/olingo(.*)

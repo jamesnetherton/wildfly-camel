@@ -46,6 +46,7 @@ exec
 facebook
 file
 flatpack
+flink
 freemarker
 ftp
 ftps
@@ -150,7 +151,6 @@ docker
 drill
 elasticsearch5
 etcd
-flink
 google-calendar
 google-drive
 google-mail

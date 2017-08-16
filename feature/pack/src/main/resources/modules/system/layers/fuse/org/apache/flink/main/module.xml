@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="urn:jboss:module:1.1" name="org.apache.flink">
+  <properties>
+    <property name="jboss.api" value="private" />
+  </properties>
+  <resources>
+    <artifact name="${org.apache.flink:flink-annotations}" />
+    <artifact name="${org.apache.flink:flink-clients_2.10}" />
+    <artifact name="${org.apache.flink:flink-core}" />
+    <artifact name="${org.apache.flink:flink-java}" />
+    <artifact name="${org.apache.flink:flink-metrics-core}" />
+    <artifact name="${org.apache.flink:flink-optimizer_2.10}" />
+    <artifact name="${org.apache.flink:flink-runtime_2.10}" />
+    <artifact name="${org.apache.flink:flink-shaded-hadoop2}" />
+    <artifact name="${org.apache.flink:flink-streaming-java_2.10}" />
+  </resources>
+  <dependencies>
+    <module name="com.dataartisans.flakka" export="true" />
+    <module name="com.typesafe.config" />
+    <module name="io.netty" slot="3.10" />
+    <module name="com.esotericsoftware.kryo" />
+    <module name="com.fasterxml.jackson.core.jackson-core" />
+    <module name="com.fasterxml.jackson.core.jackson-databind" />
+    <module name="com.github.scopt" />
+    <module name="com.jamesmurty.utils.java.xmlbuilder" />
+    <module name="com.jcraft.jsch" />
+    <module name="com.thoughtworks.paranamer" />
+    <module name="com.twitter" />
+    <module name="javax.activation.api" />
+    <module name="javax.servlet.api" />
+    <module name="javax.xml.bind.api" />
+    <module name="javax.xml.stream.api" />
+    <module name="org.apache.avro" />
+    <module name="org.apache.commons.beanutils.bean.collections" />
+    <module name="org.apache.commons.cli" />
+    <module name="org.apache.commons.codec" />
+    <module name="org.apache.commons.collections" />
+    <module name="org.apache.commons.compress" />
+    <module name="org.apache.commons.configuration" />
+    <module name="org.apache.commons.digester" />
+    <module name="org.apache.commons.io" />
+    <module name="org.apache.commons.lang" />
+    <module name="org.apache.commons.lang3" />
+    <module name="org.apache.commons.logging" />
+    <module name="org.apache.commons.math3" />
+    <module name="org.apache.commons.net" />
+    <module name="org.apache.kafka.clients" />
+    <module name="org.apache.log4j" />
+    <module name="org.apache.sling" />
+    <module name="org.apache.zookeeper" />
+    <module name="org.clapper" />
+    <module name="org.codehaus.jackson.jackson-core-asl" />
+    <module name="org.codehaus.jackson.jackson-mapper-asl" />
+    <module name="org.javassist" />
+    <module name="org.scala.library" />
+    <module name="org.slf4j" />
+    <module name="org.tukaani.xz" />
+    <module name="xmlenc" />
+  </dependencies>
+</module>
