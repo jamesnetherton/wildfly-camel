@@ -172,6 +172,13 @@
         </dependencies>
     </module>
 
+    <module name="com.codepoetics.protonpack">
+        <properties>
+            <property name="jboss.api" value="private"/>
+        </properties>
+        <include artifact="com.codepoetics:protonpack" />
+    </module>
+
     <module name="com.eclipsesource.minimal.json">
         <properties>
             <property name="jboss.api" value="private"/>
@@ -372,6 +379,14 @@
             <property name="jboss.api" value="private"/>
         </properties>
         <include artifact="dk.brics.automaton:automaton" />
+    </module>
+
+    <module name="io.dropwizard.metrics">
+        <properties>
+            <property name="jboss.api" value="private"/>
+        </properties>
+        <include artifact="io.dropwizard.metrics:metrics-core" />
+        <include artifact="io.dropwizard.metrics:metrics-json" />
     </module>
 
     <module name="io.fabric8.kubernetes.model">
@@ -1037,6 +1052,24 @@
         <include artifact="org.eclipse.jetty.websocket:websocket-common" />
     </module>
 
+    <module name="org.eclipse.milo">
+        <properties>
+            <property name="jboss.api" value="private"/>
+        </properties>
+        <apply-to-dependencies skip="true">
+            <include module="findbugs" />
+        </apply-to-dependencies>
+        <include artifact="org.eclipse.milo:sdk-client" />
+        <include artifact="org.eclipse.milo:sdk-core" />
+        <include artifact="org.eclipse.milo:sdk-server" />
+        <include artifact="org.eclipse.milo:stack-client" />
+        <include artifact="org.eclipse.milo:stack-core" />
+        <include artifact="org.eclipse.milo:stack-server" />
+        <dependencies>
+            <module name="javax.api" />
+        </dependencies>
+    </module>
+
     <module name="org.elasticsearch">
         <properties>
             <property name="jboss.api" value="private"/>
@@ -1127,6 +1160,13 @@
         <apply-to-dependencies skip="true">
             <include module="org.jboss.logging.processor" />
         </apply-to-dependencies>
+    </module>
+
+    <module name="org.jooq.jool">
+        <properties>
+            <property name="jboss.api" value="private"/>
+        </properties>
+        <include artifact="org.jooq:jool" />
     </module>
 
     <module name="org.json4s">

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="urn:jboss:module:1.1" name="org.eclipse.milo">
+  <properties>
+    <property name="jboss.api" value="private" />
+  </properties>
+  <resources>
+    <artifact name="${org.eclipse.milo:sdk-client}" />
+    <artifact name="${org.eclipse.milo:sdk-core}" />
+    <artifact name="${org.eclipse.milo:sdk-server}" />
+    <artifact name="${org.eclipse.milo:stack-client}" />
+    <artifact name="${org.eclipse.milo:stack-core}" />
+    <artifact name="${org.eclipse.milo:stack-server}" />
+  </resources>
+  <dependencies>
+    <module name="javax.api" />
+    <module name="com.codepoetics.protonpack" />
+    <module name="com.google.guava" />
+    <module name="io.dropwizard.metrics" />
+    <module name="io.netty" slot="4.1" />
+    <module name="org.jooq.jool" />
+    <module name="org.reflections" />
+    <module name="org.slf4j" />
+  </dependencies>
+</module>

@@ -2,10 +2,9 @@
 <module xmlns="urn:jboss:module:1.1" name="org.apache.camel.component.metrics">
   <resources>
     <artifact name="${org.apache.camel:camel-metrics}" />
-    <artifact name="${io.dropwizard.metrics:metrics-core}" />
-    <artifact name="${io.dropwizard.metrics:metrics-json}" />
   </resources>
   <dependencies>
+    <module name="io.dropwizard.metrics" />
     <module name="javax.api" />
     <module name="org.slf4j" />
     <module name="sun.jdk">

@@ -76,6 +76,8 @@ linkedin
 log
 lucene
 metrics
+milo-client
+milo-server
 mina2
 mllp
 mock
@@ -167,8 +169,6 @@ ignite-messaging
 ignite-queue
 ignite-set
 jclouds
-milo-client
-milo-server
 mongodb3
 olingo4
 openstack-cinder
