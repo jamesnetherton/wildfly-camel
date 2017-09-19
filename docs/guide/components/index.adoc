@@ -48,6 +48,8 @@ include::camel-cassandra.adoc[]
 
 include::camel-cdi.adoc[]
 
+include::camel-chunk.adoc[]
+
 include::camel-coap.adoc[]
 
 include::camel-context.adoc[]

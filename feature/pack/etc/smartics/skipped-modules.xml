@@ -176,6 +176,10 @@
         <include artifact=":junit" />
     </module>
 
+    <module name="net.java.dev.jets3t" skip="true">
+        <include artifact="net.java.dev.jets3t:jets3t" />
+    </module>
+
     <module name="net.jcip" skip="true">
         <include artifact="net.jcip:jcip-annotations" />
     </module>

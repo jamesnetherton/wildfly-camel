@@ -366,6 +366,23 @@
         </dependencies>
     </module>
 
+    <module name="org.apache.camel.component.chunk">
+        <include artifact="com.x5dev:chunk-templates" />
+        <include artifact="org.apache.camel:camel-chunk" />
+        <apply-to-dependencies skip="true">
+            <include module="com.google.android" />
+            <include module="org.apache.camel.apt" />
+            <include module="org.springframework.boot" />
+        </apply-to-dependencies>
+        <dependencies>
+            <module name="org.slf4j" />
+        </dependencies>
+        <exports>
+            <exclude path="com/csvreader**" />
+            <exclude path="com/x5**" />
+        </exports>
+    </module>
+
     <module name="org.apache.camel.component.coap">
         <include artifact="org.apache.camel:camel-coap" />
         <apply-to-dependencies skip="true">
@@ -1136,16 +1153,12 @@
     <module name="org.apache.camel.component.jsonpath">
         <include artifact="org.apache.camel:camel-jsonpath" />
         <include artifact="com.jayway.jsonpath:json-path" />
-        <include artifact="net.minidev:accessors-smart" />
-        <include artifact="net.minidev:json-smart" />
         <apply-to-dependencies skip="true">
             <include module="org.apache.camel.apt" />
             <include module="org.springframework.boot" />
-            <include module="org.ow2.asm" />
         </apply-to-dependencies>
         <exports>
             <exclude path="com/jayway**" />
-            <exclude path="net/minidev**" />
             <exclude path="org/objectweb**" />
         </exports>
     </module>

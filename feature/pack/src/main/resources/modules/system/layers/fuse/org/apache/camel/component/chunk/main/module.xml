@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="urn:jboss:module:1.1" name="org.apache.camel.component.chunk">
+  <resources>
+    <artifact name="${org.apache.camel:camel-chunk}" />
+    <artifact name="${com.x5dev:chunk-templates}" />
+  </resources>
+  <dependencies>
+    <module name="org.slf4j" />
+    <module name="javax.xml.bind.api" />
+    <module name="net.minidev.json" />
+    <module name="org.apache.camel.core" />
+    <module name="org.apache.commons.io" />
+  </dependencies>
+  <exports>
+    <exclude path="com/csvreader**" />
+    <exclude path="com/x5**" />
+  </exports>
+</module>

@@ -797,6 +797,7 @@ org/apache/camel/component/box
 org/apache/camel/component/box/api
 org/apache/camel/component/braintree
 org/apache/camel/component/cassandra
+org/apache/camel/component/chunk
 org/apache/camel/component/context
 org/apache/camel/component/couchdb
 org/apache/camel/component/crypto
