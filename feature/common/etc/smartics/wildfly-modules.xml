@@ -240,6 +240,7 @@
 
     <module name="org.apache.commons.logging" skip="true">
         <include artifact=":commons-logging" />
+        <include artifact=":commons-logging-api" />
     </module>
 
     <module name="org.apache.commons.pool" skip="true">

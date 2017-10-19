@@ -14,6 +14,8 @@ include::camel-apns.adoc[]
 
 include::camel-asterisk.adoc[]
 
+include::camel-atmos.adoc[]
+
 include::camel-atomosphere-websocket.adoc[]
 
 include::camel-atom.adoc[]

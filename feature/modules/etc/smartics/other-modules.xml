@@ -214,6 +214,16 @@
         <include artifact="com.eclipsesource.minimal-json:minimal-json" />
     </module>
 
+    <module name="com.emc.vipr">
+        <properties>
+            <property name="jboss.api" value="private"/>
+        </properties>
+        <include artifact="com.emc.vipr:atmos-client"/>
+        <include artifact="com.emc.vipr:jersey-apache-httpclient4"/>
+        <include artifact="com.emc.vipr:vipr-object-transformations"/>
+        <include artifact="com.emc.vipr:jackson-dataformat-cbor"/>
+        <include artifact="org.b1.pack:lzma-sdk-4j"/>
+    </module>
 
     <module name="com.fasterxml.jackson.dataformat.cbor">
         <properties>
@@ -580,6 +590,31 @@
             <module name="com.squareup.okio"/>
             <module name="com.squareup.okhttp3"/>
         </dependencies>
+    </module>
+
+    <module name="com.sun.jersey.client">
+        <properties>
+            <property name="jboss.api" value="private"/>
+        </properties>
+        <include artifact="com.sun.jersey:jersey-client"/>
+        <apply-to-dependencies skip="true">
+            <include module="org.osgi.osgi_R4_core"/>
+        </apply-to-dependencies>
+    </module>
+
+    <module name="com.sun.jersey.core">
+        <properties>
+            <property name="jboss.api" value="private"/>
+        </properties>
+        <include artifact="com.sun.jersey:jersey-core"/>
+    </module>
+
+    <module name="com.sun.jersey.contribs.multipart">
+        <properties>
+            <property name="jboss.api" value="private"/>
+        </properties>
+        <include artifact="com.sun.jersey.contribs:jersey-multipart"/>
+        <include artifact="org.jvnet.mimepull:mimepull"/>
     </module>
 
     <module name="com.thoughtworks.xstream">
@@ -983,7 +1018,7 @@
             <include module="ant" />
             <include module="com.google.inject.guice"/>
             <include module="com.google.inject.extensions"/>
-            <include module="com.sun.jersey" />
+            <include module="com.sun.jersey.skipped" />
             <include module="com.google.code.findbugs" />
             <include module="io.netty.skipped" />
             <include module="jdiff" />
@@ -1604,6 +1639,13 @@
         <apply-to-dependencies skip="true">
             <include module="org.fusesource.leveldbjni" />
         </apply-to-dependencies>
+    </module>
+
+    <module name="org.jdom.legacy">
+        <properties>
+            <property name="jboss.api" value="private"/>
+        </properties>
+        <include artifact="org.jdom:jdom-legacy" />
     </module>
 
     <module name="org.jgroups" inherit-slot="false" slot="4.0">

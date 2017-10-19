@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="urn:jboss:module:1.1" name="com.sun.jersey.contribs.multipart">
+  <properties>
+    <property name="jboss.api" value="private" />
+  </properties>
+  <resources>
+    <artifact name="${com.sun.jersey.contribs:jersey-multipart}" />
+    <artifact name="${org.jvnet.mimepull:mimepull}" />
+  </resources>
+  <dependencies>
+    <module name="com.sun.jersey.core" />
+  </dependencies>
+</module>

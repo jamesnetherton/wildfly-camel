@@ -1,0 +1,3 @@
+### camel-atmos
+
+The https://github.com/apache/camel/blob/camel-{camel-version}/components/camel-atmos/src/main/docs/atmos-component.adoc[atmos,window=_blank] component allows you to work with ViPR object data services using the https://github.com/emcvipr/dataservices-sdk-java[Atmos Client,window=_blank].

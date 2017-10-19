@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="urn:jboss:module:1.1" name="com.emc.vipr">
+  <properties>
+    <property name="jboss.api" value="private" />
+  </properties>
+  <resources>
+    <artifact name="${com.emc.vipr:atmos-client}" />
+    <artifact name="${com.emc.vipr:jersey-apache-httpclient4}" />
+    <artifact name="${org.b1.pack:lzma-sdk-4j}" />
+    <artifact name="${com.emc.vipr:vipr-object-transformations}" />
+  </resources>
+  <dependencies>
+    <module name="com.sun.jersey.client" />
+    <module name="com.sun.jersey.contribs.multipart" />
+    <module name="com.sun.jersey.core" />
+    <module name="org.apache.commons.codec" />
+    <module name="org.apache.commons.logging" />
+    <module name="org.apache.httpcomponents" slot="4.5" />
+    <module name="org.jdom.legacy" />
+    <module name="org.slf4j" />
+  </dependencies>
+</module>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="urn:jboss:module:1.1" name="org.apache.camel.component.atmos">
+  <resources>
+    <artifact name="${org.apache.camel:camel-atmos}" />
+  </resources>
+  <dependencies>
+    <module name="org.slf4j" />
+    <module name="com.emc.vipr" />
+    <module name="javax.xml.bind.api" />
+    <module name="org.apache.camel.core" />
+    <module name="org.apache.commons.io" />
+  </dependencies>
+</module>

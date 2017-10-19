@@ -132,9 +132,7 @@
         <include artifact="com.sun.grizzly:(.*)"/>
     </module>
 
-    <module name="com.sun.jersey" skip="true">
-        <include artifact="com.sun.jersey:jersey-client" />
-        <include artifact="com.sun.jersey:jersey-core"/>
+    <module name="com.sun.jersey.skipped" skip="true">
         <include artifact="com.sun.jersey:jersey-json"/>
         <include artifact="com.sun.jersey:jersey-server"/>
         <include artifact="com.sun.jersey.contribs:jersey-guice" />
@@ -419,6 +417,10 @@
 
     <module name="org.osgi.compendium" skip="true">
         <include artifact="org.osgi:org.osgi.compendium" />
+    </module>
+
+    <module name="org.osgi.osgi_R4_core" skip="true">
+        <include artifact="org.osgi:osgi_R4_core" />
     </module>
 
     <module name="org.ow2.asm" skip="true">
