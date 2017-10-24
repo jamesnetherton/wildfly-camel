@@ -7,6 +7,7 @@
     <artifact name="${com.sun.jersey:jersey-core}" />
   </resources>
   <dependencies>
+    <module name="javax.api" />
     <module name="javax.mail.api" />
     <module name="javax.ws.rs.api" />
     <module name="javax.xml.bind.api" />

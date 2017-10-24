@@ -45,7 +45,7 @@ public class AtmosIntegrationTest {
         camelctx.addRoutes(new RouteBuilder() {
             @Override
             public void configure() throws Exception {
-                from("atmos:foo/get?remotePath=/path").to("mock:test");
+                from("atmos:foo/get?remotePath=/path&fullTokenId=foo&secretKey=poo&uri=http://localhost:8080").to("mock:test");
             }
         });
 

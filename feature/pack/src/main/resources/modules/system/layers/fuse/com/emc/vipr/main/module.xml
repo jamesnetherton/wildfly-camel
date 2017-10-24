@@ -10,6 +10,9 @@
     <artifact name="${com.emc.vipr:vipr-object-transformations}" />
   </resources>
   <dependencies>
+    <module name="javax.api" />
+    <module name="org.apache.log4j" />
+    <module name="sun.jdk.ext" />
     <module name="com.sun.jersey.client" />
     <module name="com.sun.jersey.contribs.multipart" />
     <module name="com.sun.jersey.core" />

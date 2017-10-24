@@ -223,6 +223,11 @@
         <include artifact="com.emc.vipr:vipr-object-transformations"/>
         <include artifact="com.emc.vipr:jackson-dataformat-cbor"/>
         <include artifact="org.b1.pack:lzma-sdk-4j"/>
+        <dependencies>
+            <module name="javax.api"/>
+            <module name="org.apache.log4j"/>
+            <module name="sun.jdk.ext"/>
+        </dependencies>
     </module>
 
     <module name="com.fasterxml.jackson.dataformat.cbor">
@@ -607,6 +612,9 @@
             <property name="jboss.api" value="private"/>
         </properties>
         <include artifact="com.sun.jersey:jersey-core"/>
+        <dependencies>
+            <module name="javax.api"/>
+        </dependencies>
     </module>
 
     <module name="com.sun.jersey.contribs.multipart">

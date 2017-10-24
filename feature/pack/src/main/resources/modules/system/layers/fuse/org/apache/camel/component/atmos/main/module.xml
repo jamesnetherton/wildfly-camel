@@ -4,6 +4,7 @@
     <artifact name="${org.apache.camel:camel-atmos}" />
   </resources>
   <dependencies>
+    <module name="com.sun.jersey.core" services="export" />
     <module name="org.slf4j" />
     <module name="com.emc.vipr" />
     <module name="javax.xml.bind.api" />
