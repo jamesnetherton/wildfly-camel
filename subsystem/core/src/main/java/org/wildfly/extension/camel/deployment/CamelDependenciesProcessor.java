@@ -31,6 +31,7 @@ import org.jboss.as.server.deployment.module.ModuleSpecification;
 import org.jboss.modules.ModuleIdentifier;
 import org.jboss.modules.ModuleLoader;
 import org.jboss.modules.filter.PathFilters;
+import org.wildfly.extension.camel.CamelConstants;
 
 /**
  * A DUP that sets the dependencies required for using Camel
@@ -41,8 +42,6 @@ import org.jboss.modules.filter.PathFilters;
 public final class CamelDependenciesProcessor implements DeploymentUnitProcessor {
 
     private static final String GRAVIA_MODULE = "org.jboss.gravia";
-    private static final String APACHE_CAMEL_MODULE = "org.apache.camel";
-    private static final String APACHE_CAMEL_COMPONENT_MODULE = "org.apache.camel.component";
     private static final String WILDFLY_CAMEL_MODULE = "org.wildfly.extension.camel";
 
     public void deploy(DeploymentPhaseContext phaseContext) throws DeploymentUnitProcessingException {
@@ -61,7 +60,7 @@ public final class CamelDependenciesProcessor implements DeploymentUnitProcessor
         moduleSpec.addUserDependency(new ModuleDependency(moduleLoader, ModuleIdentifier.create(WILDFLY_CAMEL_MODULE), false, false, false, false));
 
         // Add camel aggregator dependency
-        ModuleDependency moddep = new ModuleDependency(moduleLoader, ModuleIdentifier.create(APACHE_CAMEL_MODULE), false, false, true, false);
+        ModuleDependency moddep = new ModuleDependency(moduleLoader, ModuleIdentifier.create(CamelConstants.CAMEL_MODULE), false, false, true, false);
         moddep.addImportFilter(PathFilters.getMetaInfFilter(), true);
         moduleSpec.addUserDependency(moddep);
 
@@ -71,7 +70,7 @@ public final class CamelDependenciesProcessor implements DeploymentUnitProcessor
                 moduleSpec.addUserDependency(new ModuleDependency(moduleLoader, modid, false, false, true, false));
             }
         } else {
-            moddep = new ModuleDependency(moduleLoader, ModuleIdentifier.create(APACHE_CAMEL_COMPONENT_MODULE), false, false, true, false);
+            moddep = new ModuleDependency(moduleLoader, ModuleIdentifier.create(CamelConstants.CAMEL_COMPONENT_MODULE), false, false, true, false);
             moddep.addImportFilter(PathFilters.getMetaInfFilter(), true);
             moddep.addImportFilter(PathFilters.isOrIsChildOf("META-INF/cxf"), true);
             moduleSpec.addUserDependency(moddep);

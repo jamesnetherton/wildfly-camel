@@ -60,4 +60,9 @@ public interface CamelConstants {
     String CAMEL_CONTEXT_REGISTRY_BINDING_NAME = "java:jboss/camel/CamelContextRegistry";
     /** The JNDI base name for {@link CamelContext} instances. */
     String CAMEL_CONTEXT_BINDING_NAME = "java:jboss/camel/context";
+
+    /** The name of the base camel module */
+    String CAMEL_MODULE = "org.apache.camel";
+    /** The name of the aggregated camel component module */
+    String CAMEL_COMPONENT_MODULE = "org.apache.camel.component";
 }
