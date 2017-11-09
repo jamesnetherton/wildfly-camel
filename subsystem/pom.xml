@@ -49,6 +49,7 @@
     <modules>
         <module>core</module>
         <module>cdi</module>
+        <module>restlet</module>
         <module>security</module>
         <module>undertow</module>
     </modules>

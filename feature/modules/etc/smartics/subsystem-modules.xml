@@ -70,6 +70,7 @@
             <module name="org.springframework.context"/>
             <module name="org.springframework.tx"/>
             <module name="org.wildfly.extension.camel.cdi" services="export" optional="true"/>
+            <module name="org.wildfly.extension.camel.restlet" export="true" services="export" optional="true"/>
             <module name="org.wildfly.extension.camel.security" export="true" services="export" optional="true"/>
             <module name="org.wildfly.extension.camel.undertow" services="export" optional="true"/>
             <module name="org.slf4j"/>
@@ -89,7 +90,24 @@
             <module name="org.slf4j"/>
         </dependencies>
     </module>
-    
+
+    <module name="org.wildfly.extension.camel.restlet">
+        <include artifact=":wildfly-camel-subsystem-restlet" />
+        <dependencies>
+            <module name="javax.api"/>
+            <module name="org.apache.camel.core"/>
+            <module name="org.apache.camel.component.restlet"/>
+            <module name="org.jboss.as.server"/>
+            <module name="org.jboss.modules"/>
+            <module name="org.jboss.as.network"/>
+            <module name="org.restlet.jee.org.restlet" />
+            <module name="org.restlet.jee.org.restlet.ext.httpclient" />
+            <module name="io.undertow.core" />
+            <module name="io.undertow.servlet"/>
+            <module name="org.slf4j"/>
+        </dependencies>
+    </module>
+
     <module name="org.wildfly.extension.camel.security">
         <include artifact=":wildfly-camel-subsystem-security" />
         <dependencies>

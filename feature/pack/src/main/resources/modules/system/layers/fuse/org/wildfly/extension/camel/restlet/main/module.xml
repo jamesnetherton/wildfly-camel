@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="urn:jboss:module:1.1" name="org.wildfly.extension.camel.restlet">
+  <resources>
+    <artifact name="${org.wildfly.camel:wildfly-camel-subsystem-restlet}" />
+  </resources>
+  <dependencies>
+    <module name="javax.api" />
+    <module name="org.apache.camel.core" />
+    <module name="org.apache.camel.component.restlet" />
+    <module name="org.jboss.as.server" />
+    <module name="org.jboss.modules" />
+    <module name="org.jboss.as.network" />
+    <module name="org.restlet.jee.org.restlet" />
+    <module name="org.restlet.jee.org.restlet.ext.httpclient" />
+    <module name="io.undertow.core" />
+    <module name="io.undertow.servlet" />
+    <module name="org.slf4j" />
+    <module name="org.jboss.gravia" />
+    <module name="org.restlet.jee.org.restlet.ext.servlet" />
+    <module name="org.wildfly.extension.camel" />
+    <module name="org.wildfly.extension.undertow" />
+  </dependencies>
+</module>

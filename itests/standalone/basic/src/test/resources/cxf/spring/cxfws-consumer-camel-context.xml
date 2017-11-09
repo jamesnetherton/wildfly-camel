@@ -32,7 +32,12 @@
     <cxf:cxfEndpoint id="cxfProducer" 
         address="http://localhost:8080/EndpointService/EndpointPort" 
         serviceClass="org.wildfly.camel.test.common.types.Endpoint" />
-    
+
+    <cxf:cxfEndpoint id="cxfConsumer2"
+                     address="http://localhost:8080/EndpointService/Entersentbs"
+                     serviceClass="org.wildfly.camel.test.common.types.Endpoint" />
+
+
     <camelContext id="cxfws-undertow" xmlns="http://camel.apache.org/schema/spring">
         <route id="producerRoute">
             <from uri="direct:start" />
@@ -40,6 +45,12 @@
         </route>
         <route id="consumerRoute">
             <from uri="cxf:bean:cxfConsumer" />
+            <transform>
+                <simple>Hello ${body}</simple>
+            </transform>
+        </route>
+        <route id="consumerRoutes">
+            <from uri="cxf:bean:cxfConsumer2" />
             <transform>
                 <simple>Hello ${body}</simple>
             </transform>

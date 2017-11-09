@@ -30,6 +30,8 @@
                 <path name="com/sun/org/apache/xml/internal/serialize" />
                 <!-- needed by hadoop -->
                 <path name="com/sun/security/auth/module" />
+                <!-- needed by Restlet -->
+                <path name="com/sun/net/httpserver" />
             </paths>
         </system>
     </dependencies>

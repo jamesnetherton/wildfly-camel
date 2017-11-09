@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="urn:jboss:module:1.1" name="org.apache.camel.component.restlet">
+  <resources>
+    <artifact name="${org.apache.camel:camel-restlet}" />
+  </resources>
+  <dependencies>
+    <module name="org.slf4j" />
+    <module name="javax.servlet.api" />
+    <module name="javax.xml.bind.api" />
+    <module name="org.apache.camel.component.http.common" />
+    <module name="org.apache.camel.core" />
+    <module name="org.restlet.jee.org.restlet" />
+    <module name="org.restlet.jee.org.restlet.ext.httpclient" />
+  </dependencies>
+</module>
