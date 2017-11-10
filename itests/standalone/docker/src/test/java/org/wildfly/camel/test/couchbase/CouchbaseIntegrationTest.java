@@ -32,7 +32,6 @@ import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.wildfly.camel.test.common.http.HttpRequest;
@@ -43,7 +42,6 @@ import org.wildfly.extension.camel.CamelAware;
 @CamelAware
 @RunWith(ArquillianConditionalRunner.class)
 @RequiresDocker
-@Ignore("[#2173] Intermittent failure of CouchbaseIntegrationTest")
 public class CouchbaseIntegrationTest {
 
     private static final String CONTAINER_NAME = "couchbase";
@@ -157,12 +155,11 @@ public class CouchbaseIntegrationTest {
 
             if (!response.getBody().contains("Completed loading sample bucket beer-sample")) {
                 attempts++;
-                Thread.sleep(500);
+                Thread.sleep(1000);
             } else {
                 return;
             }
-        } while(attempts < 30);
-
+        } while(attempts < 60);
         throw new IllegalStateException("Gave up waiting for Couchbase server to become ready");
     }
 
