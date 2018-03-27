@@ -2,7 +2,7 @@
  * #%L
  * Wildfly Camel :: Subsystem
  * %%
- * Copyright (C) 2013 - 2014 RedHat
+ * Copyright (C) 2013 - 2018 RedHat
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,23 +17,9 @@
  * limitations under the License.
  * #L%
  */
-
-
 package org.wildfly.extension.camel.parser;
 
-
-/**
- * Camel subsystem model constants.
- *
- * @author Thomas.Diesler@jboss.com
- * @since 23-Aug-2013
- */
-interface ModelConstants {
-
-    String NAME = "name";
-    String CONTEXT = "context";
-    String VALUE = "value";
-
-    String ENDPOINTS = "endpoints";
-    String HEALTH = "health";
+public enum CamelHealthState {
+    HEALTHY,
+    UNHEALTHY
 }
