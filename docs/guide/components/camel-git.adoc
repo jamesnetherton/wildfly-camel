@@ -1,5 +1,5 @@
 ### camel-git
 
-The http://camel.apache.org/git.html[git,window=_blank]
+The https://github.com/apache/camel/blob/camel-{camel-version}/components/camel-git/src/main/docs/git-component.adoc[git,window=_blank]
 component enables you to interact with https://git-scm.com/[Git,window=_blank] repositories.
 

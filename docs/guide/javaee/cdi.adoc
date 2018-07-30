@@ -3,7 +3,7 @@
 The Camel CDI component provides an auto-configuration for Apache Camel, using CDI as dependency injection framework. However, it is based on convention-over-configuration.
 It implements the standard camel bean integration so that you can use the Camel annotations easily in CDI beans.
 
-For more information about CDI, refer to the http://camel.apache.org/cdi.html[cdi,window=_blank] documentation.
+For more information about CDI, refer to the https://github.com/apache/camel/blob/camel-{camel-version}/components/camel-cdi/src/main/docs/cdi-component.adoc[cdi,window=_blank] documentation.
 
 The following example describes how you can consume and assosciate the Camel Context with a route.
 

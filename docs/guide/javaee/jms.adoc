@@ -1,6 +1,6 @@
 ### JMS
 
-Messaging support is provided through the http://camel.apache.org/jms.html[JMS,window=_blank]
+Messaging support is provided through the https://github.com/apache/camel/blob/camel-{camel-version}/components/camel-jms/src/main/docs/jms-component.adoc[JMS,window=_blank]
 component which integrates with the {wildfly} Messaging (https://activemq.apache.org/artemis/)[ActiveMQ Artemis,window=_blank]) subsystem.
 
 Integration with other JMS implementations is possible through configuration of vendor specific resource adapters, or if not available, by using the JBoss Generic JMS resource adapter.

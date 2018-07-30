@@ -1,6 +1,6 @@
 ### camel-file2
 
-The http://camel.apache.org/file2.html[file,window=_blank] component provides access to file systems, allowing files to be processed by any other Camel Components or messages from other components to be saved to disk.
+The https://github.com/apache/camel/blob/camel-{camel-version}/components/camel-file2/src/main/docs/file2-component.adoc[file,window=_blank] component provides access to file systems, allowing files to be processed by any other Camel Components or messages from other components to be saved to disk.
 
 Here is a simple route that prepends the message with 'Hello' and writes the result to a file in {wildfly}'s data directory.
 

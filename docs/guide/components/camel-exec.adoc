@@ -1,5 +1,5 @@
 ### camel-exec
 
-The http://camel.apache.org/exec.html[exec,window=_blank]
+The https://github.com/apache/camel/blob/camel-{camel-version}/components/camel-exec/src/main/docs/exec-component.adoc[exec,window=_blank]
 component enables you to execute system commands.
 

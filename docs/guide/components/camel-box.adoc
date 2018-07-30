@@ -1,3 +1,3 @@
 ### camel-box
 
-The http://camel.apache.org/box.html[Box,window=_blank] component provides access to all of the https://www.box.com[box.com,window=_blank] APIs.
+The https://github.com/apache/camel/blob/camel-{camel-version}/components/camel-box/src/main/docs/box-component.adoc[Box,window=_blank] component provides access to all of the https://www.box.com[box.com,window=_blank] APIs.

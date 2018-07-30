@@ -1,3 +1,3 @@
 ### camel-lumberjack
 
-The http://camel.apache.org/lumberjack.html[lumberjack,window=_blank] component retrieves logs sent over the network using the Lumberjack protocol, from https://www.elastic.co/fr/products/beats/filebeat[Filebeat,window=_blank] for instance.
+The https://github.com/apache/camel/blob/camel-{camel-version}/components/camel-lumberjack/src/main/docs/lumberjack-component.adoc[lumberjack,window=_blank] component retrieves logs sent over the network using the Lumberjack protocol, from https://www.elastic.co/fr/products/beats/filebeat[Filebeat,window=_blank] for instance.

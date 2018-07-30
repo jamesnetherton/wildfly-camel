@@ -1,6 +1,6 @@
 ### camel-jasypt
 
-The http://camel.apache.org/jasypt.html[jasypt,window=_blank] component provides a simplified encryption library which makes encryption and decryption easy. Camel integrates with Jasypt to allow sensitive information in Properties files to be encrypted.
+The https://github.com/apache/camel/blob/camel-{camel-version}/components/camel-jasypt/src/main/docs/jasypt-component.adoc[jasypt,window=_blank] component provides a simplified encryption library which makes encryption and decryption easy. Camel integrates with Jasypt to allow sensitive information in Properties files to be encrypted.
 
 [source,java,options="nowrap"]
 ----

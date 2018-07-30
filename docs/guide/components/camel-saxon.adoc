@@ -5,7 +5,7 @@ component supports http://www.w3.org/TR/xquery/[XQuery,window=_blank]
 to allow an http://camel.apache.org/expression.html[Expression,window=_blank]
 or http://camel.apache.org/predicate.html[Predicate,window=_blank]
 to be used in the http://camel.apache.org/dsl.html[DSL,window=_blank]
-or http://camel.apache.org/xml-configuration.html[Xml Configuration,window=_blank].
+or https://github.com/apache/camel/blob/camel-{camel-version}/components/camel-xml-configuration/src/main/docs/xml-configuration-component.adoc[Xml Configuration,window=_blank].
 
 [source,java,options="nowrap"]
 CamelContext camelctx = new DefaultCamelContext();

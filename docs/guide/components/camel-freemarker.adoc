@@ -1,5 +1,5 @@
 ### camel-freemarker
 
-The http://camel.apache.org/freemarker.html[freemarker,window=_blank]
+The https://github.com/apache/camel/blob/camel-{camel-version}/components/camel-freemarker/src/main/docs/freemarker-component.adoc[freemarker,window=_blank]
 component enables you to use http://freemarker.org/[FreeMarker,window=_blank] templates in your camel routes.
 

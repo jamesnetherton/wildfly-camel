@@ -1,4 +1,4 @@
 ### camel-stax
 
-The http://camel.apache.org/stax.html[StAX,window=_blank] component enables messages to be passed
+The https://github.com/apache/camel/blob/camel-{camel-version}/components/camel-stax/src/main/docs/stax-component.adoc[StAX,window=_blank] component enables messages to be passed
 through a SAX ContentHandler. It can also iterate over JAXB records using StAX.

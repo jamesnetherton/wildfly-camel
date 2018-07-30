@@ -1,3 +1,3 @@
 ### camel-geocoder
 
-The http://camel.apache.org/geocoder.html[Geoder,window=_blank] component is used for looking up geocodes (latitude and longitude) for a given address, or reverse lookup. The component uses the https://code.google.com/archive/p/geocoder-java[Google Geocoder API,window=_blank] library.
+The https://github.com/apache/camel/blob/camel-{camel-version}/components/camel-geocoder/src/main/docs/geocoder-component.adoc[Geoder,window=_blank] component is used for looking up geocodes (latitude and longitude) for a given address, or reverse lookup. The component uses the https://code.google.com/archive/p/geocoder-java[Google Geocoder API,window=_blank] library.

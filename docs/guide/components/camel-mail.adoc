@@ -132,7 +132,7 @@ It is recommended to not use clear text for passwords within configuration files
 ##### Camel security
 
 Camel endpoint security documentation can be found on the http://camel.apache.org/mail.html[mail,window=_blank]
-component guide. Camel also has a http://camel.apache.org/security.html[security summary,window=_blank] page.
+component guide. Camel also has a https://github.com/apache/camel/blob/camel-{camel-version}/components/camel-security/src/main/docs/security-component.adoc[security summary,window=_blank] page.
 
 
 #### Code examples on GitHub

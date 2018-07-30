@@ -1,6 +1,6 @@
 ### camel-pgevent
 
-The http://camel.apache.org/pgevent.html[pgevent,window=_blank] component allows for Producing/Consuming PostgreSQL events related to LISTEN/NOTIFY commands.
+The https://github.com/apache/camel/blob/camel-{camel-version}/components/camel-pgevent/src/main/docs/pgevent-component.adoc[pgevent,window=_blank] component allows for Producing/Consuming PostgreSQL events related to LISTEN/NOTIFY commands.
 
 [NOTE]
 ====

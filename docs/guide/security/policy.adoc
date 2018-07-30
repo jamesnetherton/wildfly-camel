@@ -1,6 +1,6 @@
 ### Route Policy
 
-Camel supports the notion of http://camel.apache.org/routepolicy.html[RoutePolicies,window=_blank], which can be used to integrate with the {wildfly} security system. There are currently two supported scenarios for security integration.
+Camel supports the notion of https://github.com/apache/camel/blob/camel-{camel-version}/components/camel-routepolicy/src/main/docs/routepolicy-component.adoc[RoutePolicies,window=_blank], which can be used to integrate with the {wildfly} security system. There are currently two supported scenarios for security integration.
 
 #### Camel calls into JavaEE
 

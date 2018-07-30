@@ -1,6 +1,6 @@
 ### JPA
 
-JPA integration is provided by the http://camel.apache.org/jpa.html[Camel JPA component,window=_blank].
+JPA integration is provided by the https://github.com/apache/camel/blob/camel-{camel-version}/components/camel-jpa/src/main/docs/jpa-component.adoc[Camel JPA component,window=_blank].
 You can develop Camel JPA applications by providing a persistence.xml configuration file together with some JPA annotated classes.
 
 #### Example persistence.xml

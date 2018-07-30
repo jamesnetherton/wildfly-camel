@@ -40,4 +40,4 @@ The following lists supported Data Formats
 * http://camel.apache.org/xml-security-component.html[XMLSecurity,window=_blank]
 * http://camel.apache.org/xstream.html[XStream,window=_blank]
 * http://camel.apache.org/yaml-data-format.html[YAML,window=_blank]
-* http://camel.apache.org/zip-file-dataformat.html[Zip,window=_blank]
+* https://github.com/apache/camel/blob/camel-{camel-version}/components/camel-zip-file-dataformat/src/main/docs/zip-file-dataformat-component.adoc[Zip,window=_blank]
