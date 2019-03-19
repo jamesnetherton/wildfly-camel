@@ -153,7 +153,7 @@
                     match: 'WFSWARM99999: WildFly Swarm is Ready'
                     stdOut: true
                     stdErr: true
-                    timeout: 15
+                    timeout: 30
             nats:
                 image: nats:0.9.6
                 portBindings: [
