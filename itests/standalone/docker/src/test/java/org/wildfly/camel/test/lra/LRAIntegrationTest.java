@@ -92,8 +92,8 @@ public class LRAIntegrationTest {
 
     @After
     public void tearDown() throws Exception {
-//        cubeController.stop(CONTAINER_NAME);
-//        cubeController.destroy(CONTAINER_NAME);
+        cubeController.stop(CONTAINER_NAME);
+        cubeController.destroy(CONTAINER_NAME);
     }
 
     @Test
