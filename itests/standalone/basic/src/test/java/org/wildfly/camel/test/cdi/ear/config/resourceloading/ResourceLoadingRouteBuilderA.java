@@ -20,9 +20,7 @@
 package org.wildfly.camel.test.cdi.ear.config.resourceloading;
 
 import org.apache.camel.builder.RouteBuilder;
-import org.wildfly.extension.camel.CamelAware;
 
-@CamelAware
 public class ResourceLoadingRouteBuilderA extends RouteBuilder  {
 
     @Override

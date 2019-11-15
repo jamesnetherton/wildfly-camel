@@ -20,9 +20,7 @@
 package org.wildfly.camel.test.cdi.ear.config.auto;
 
 import org.apache.camel.builder.RouteBuilder;
-import org.wildfly.extension.camel.CamelAware;
 
-@CamelAware
 public class DefaultRouteBuilderB extends RouteBuilder {
 
     @Override

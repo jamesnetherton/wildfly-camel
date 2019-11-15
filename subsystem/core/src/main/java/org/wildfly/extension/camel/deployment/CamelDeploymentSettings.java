@@ -80,7 +80,7 @@ public final class CamelDeploymentSettings {
     }
 
     public static class Builder {
-        private boolean camelAnnotationPresent;
+        private boolean camelApiUsageDetected;
         private List<URL> camelContextUrls = new ArrayList<>();
         private List<Map.Entry<CamelDeploymentSettings.Builder, Consumer<CamelDeploymentSettings>>> children = new ArrayList<>();
         private List<String> dependencies = new ArrayList<>();
@@ -120,9 +120,9 @@ public final class CamelDeploymentSettings {
             return result;
         }
 
-        public Builder camelAnnotationPresent(boolean camelAnnotationPresent) {
+        public Builder camelApiUsageDetected(boolean camelApiUsageDetected) {
             synchronized (lock) {
-                this.camelAnnotationPresent = camelAnnotationPresent;
+                this.camelApiUsageDetected = camelApiUsageDetected;
             }
             return this;
         }
@@ -206,8 +206,8 @@ public final class CamelDeploymentSettings {
                     }
                 }
 
-                // @CamelAware annotations are present
-                if (camelAnnotationPresent) {
+                // Usage of Camel APIs was detected
+                if (camelApiUsageDetected) {
                     return true;
                 }
 

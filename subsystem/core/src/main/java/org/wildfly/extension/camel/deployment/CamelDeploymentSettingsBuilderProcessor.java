@@ -31,8 +31,15 @@ import org.jboss.as.server.deployment.DeploymentUnitProcessingException;
 import org.jboss.as.server.deployment.DeploymentUnitProcessor;
 import org.jboss.as.server.deployment.annotation.CompositeIndex;
 import org.jboss.jandex.AnnotationInstance;
+import org.jboss.jandex.AnnotationTarget;
+import org.jboss.jandex.AnnotationTarget.Kind;
 import org.jboss.jandex.AnnotationValue;
+import org.jboss.jandex.ClassInfo;
 import org.jboss.jandex.DotName;
+import org.jboss.jandex.FieldInfo;
+import org.jboss.jandex.MethodInfo;
+import org.jboss.jandex.MethodParameterInfo;
+import org.jboss.jandex.Type;
 
 /**
  * Takes over an available {@link CamelDeploymentSettings.Builder} or creates and attaches one, adding all information
@@ -42,7 +49,22 @@ import org.jboss.jandex.DotName;
  */
 public final class CamelDeploymentSettingsBuilderProcessor implements DeploymentUnitProcessor {
 
-    private static final String[] ACTIVATION_ANNOTATIONS = { "org.wildfly.extension.camel.CamelAware", "org.apache.camel.cdi.Uri", "org.apache.camel.cdi.ImportResource" };
+    private static final String CAMEL_PACKAGE_PREFIX = "org.apache.camel";
+
+    private static final String[] ACTIVATION_CLASSES = {
+        "org.apache.camel.CamelContext",
+        "org.apache.camel.builder.RouteBuilder",
+    };
+
+    private static final String[] ACTIVATION_ANNOTATIONS = {
+        "org.wildfly.extension.camel.CamelAware",
+        "org.apache.camel.cdi.Uri",
+        "org.apache.camel.cdi.ImportResource",
+        "javax.inject.Inject",
+        "javax.inject.Named",
+        "javax.enterprise.context.ApplicationScoped",
+        "javax.enterprise.inject.Produces",
+    };
 
     public static String getDeploymentName(final DeploymentUnit depUnit) {
         DeploymentUnit parent = depUnit.getParent();
@@ -64,13 +86,13 @@ public final class CamelDeploymentSettingsBuilderProcessor implements Deployment
 
         depSettingsBuilder.deploymentName(getDeploymentName(depUnit));
         depSettingsBuilder.deploymentValid(isDeploymentValid(depUnit));
-        depSettingsBuilder.camelAnnotationPresent(hasCamelActivationAnnotations(depUnit));
+        depSettingsBuilder.camelApiUsageDetected(hasCamelApiUsage(depUnit));
 
         final DeploymentUnit parentDepUnit = depUnit.getParent();
         if (parentDepUnit != null) {
             final CamelDeploymentSettings.Builder parentDepSettingsBuilder = parentDepUnit.getAttachment(CamelDeploymentSettings.BUILDER_ATTACHMENT_KEY);
             if (parentDepSettingsBuilder != null) {
-                /* This consumer is called by CamelDeploymentSettings.Builder.build() right after the child settings are built */
+                // This consumer is called by CamelDeploymentSettings.Builder.build() right after the child settings are built
                 Consumer<CamelDeploymentSettings> consumer = (CamelDeploymentSettings ds) -> {
                     depUnit.removeAttachment(CamelDeploymentSettings.BUILDER_ATTACHMENT_KEY);
                     depUnit.putAttachment(CamelDeploymentSettings.ATTACHMENT_KEY, ds);
@@ -96,8 +118,26 @@ public final class CamelDeploymentSettingsBuilderProcessor implements Deployment
         return result;
     }
 
-    private boolean hasCamelActivationAnnotations(final DeploymentUnit depUnit) {
+    private boolean hasCamelApiUsage(DeploymentUnit depUnit) {
+        return hasCamelActivationClassImplementations(depUnit) || hasCamelActivationAnnotations(depUnit);
+    }
 
+    private boolean hasCamelActivationClassImplementations(final DeploymentUnit depUnit) {
+        CompositeIndex index = depUnit.getAttachment(Attachments.COMPOSITE_ANNOTATION_INDEX);
+
+        for (String className : ACTIVATION_CLASSES) {
+            for (ClassInfo classInfo : index.getAllKnownSubclasses(DotName.createSimple(className))){
+                String subClassName = classInfo.name().toString();
+                if (!subClassName.startsWith(CAMEL_PACKAGE_PREFIX)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private boolean hasCamelActivationAnnotations(final DeploymentUnit depUnit) {
         boolean result = false;
 
         // Search for Camel activation annotations
@@ -115,14 +155,51 @@ public final class CamelDeploymentSettingsBuilderProcessor implements Deployment
             } else {
                 List<AnnotationInstance> annotations = getAnnotations(depUnit, annotationClassName);
                 if (!annotations.isEmpty()) {
-                    LOGGER.debug("{} annotation found", annotations.get(0).toString(true));
-                    result = true;
-                    break;
+                    if (annotationClassName.startsWith("org.apache.camel.cdi")) {
+                        LOGGER.debug("{} Camel CDI annotation found", annotations.get(0).toString(true));
+                        result = true;
+                        break;
+                    } else {
+                        // For non camel-cdi activation annotations we need to check whether the annotated types implement camel APIs
+                        for (AnnotationInstance instance : annotations) {
+                            if (annotationTargetIsCamelApi(instance.target())){
+                                LOGGER.debug("{} annotation {} found on Camel API", instance.target().kind(), instance.name());
+                                result = true;
+                                break;
+                            }
+                        }
+                    }
                 }
             }
         }
 
         return result;
+    }
+
+    private boolean annotationTargetIsCamelApi(AnnotationTarget target) {
+        if (target != null) {
+            if (target.kind().equals(Kind.CLASS)) {
+                ClassInfo classInfo = target.asClass();
+
+                Type superType = classInfo.superClassType();
+                if (isCamelApi(superType.name())) {
+                    return true;
+                }
+
+                return classInfo.interfaceNames().stream().anyMatch(interfaceName -> isCamelApi(interfaceName));
+            } else if (target.kind().equals(Kind.FIELD)) {
+                FieldInfo fieldInfo = target.asField();
+                return isCamelApi(fieldInfo.type().name());
+            } else if (target.kind().equals(Kind.METHOD)) {
+                MethodInfo methodInfo = target.asMethod();
+                return isCamelApi(methodInfo.returnType().name());
+            } else if (target.kind().equals(Kind.METHOD_PARAMETER)) {
+                MethodParameterInfo methodParameterInfo = target.asMethodParameter();
+                ClassInfo classInfo = methodParameterInfo.asClass();
+                return isCamelApi(classInfo.name()) || isCamelApi(classInfo.superClassType().name());
+            }
+        }
+        return false;
     }
 
     private List<AnnotationInstance> getAnnotations(DeploymentUnit depUnit, String className) {
@@ -136,5 +213,9 @@ public final class CamelDeploymentSettingsBuilderProcessor implements Deployment
             LOGGER.warn("Multiple annotations found: {}", annotations);
         }
         return annotations.size() > 0 ? annotations.get(0) : null;
+    }
+
+    private boolean isCamelApi(DotName name) {
+        return name.toString().startsWith(CAMEL_PACKAGE_PREFIX);
     }
 }
